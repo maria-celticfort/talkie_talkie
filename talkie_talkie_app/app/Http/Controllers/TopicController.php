@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Conversacion;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
-class ConversacionController extends Controller
+class TopicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ConversacionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Conversacion  $conversacion
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Http\Response
      */
-    public function show(Conversacion $conversacion)
+    public function show(Topic $topic)
     {
         //
     }
@@ -52,10 +52,10 @@ class ConversacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Conversacion  $conversacion
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Http\Response
      */
-    public function edit(Conversacion $conversacion)
+    public function edit(Topic $topic)
     {
         //
     }
@@ -64,10 +64,10 @@ class ConversacionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Conversacion  $conversacion
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Conversacion $conversacion)
+    public function update(Request $request, Topic $topic)
     {
         //
     }
@@ -75,10 +75,10 @@ class ConversacionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Conversacion  $conversacion
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Conversacion $conversacion)
+    public function destroy(Topic $topic)
     {
         //
     }

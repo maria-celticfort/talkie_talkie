@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('temas', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre')->nullable(False);
-            $table->enum('idioma',['ESP','ENG'])->nullable(False);
-            $table->bigInteger('numero_usuarios')->default('0');
+            $table->string('name')->nullable(False);
+            $table->enum('language',['ESP','ENG'])->nullable(False);
+            $table->bigInteger('number_users_speaking')->default('0');
             $table->boolean('bann')->default(False);
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('temas');
+        Schema::dropIfExists('topics');
     }
 };

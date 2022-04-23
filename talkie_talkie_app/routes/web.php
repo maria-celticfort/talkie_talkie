@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('index');
+
+#Generates URIs for User
+Route::resource('user',UserController::class);
+Route::post('auth',[UserController::class, 'auth'])->name('user.auth');
+Route::get('logout',[UserController::class, 'logout'])->name('user.logout');
