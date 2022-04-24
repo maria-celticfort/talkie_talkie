@@ -1,1 +1,0 @@
-# talkie_talkie
