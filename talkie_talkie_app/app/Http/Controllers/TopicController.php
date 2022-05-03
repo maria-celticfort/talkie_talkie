@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
+
 
 class TopicController extends Controller
 {
@@ -14,7 +18,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        //
+       //
     }
 
     /**
@@ -35,7 +39,24 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required|max:50',
+            'language'=>'required',
+        ]);
+
+        if(!Session::has('id')){
+            Session::flash('log_needed_message','Inicia sesión para poder buscar un tema');    
+            return redirect()->route('user.index');  
+        }
+
+        if(!Topic::where('name','=',$request->get('name'))->exists()){
+            Topic::create($request ->only('name','language'));
+        }
+
+        $topic_id = DB::table('topics')->where('name', $request['name'])->value('id');
+        $request->Session()->put('topic_id', $topic_id);
+        Session::flash('wait_message','¡De acuerdo! Empezamos a buscar');
+        return redirect()->route('match.load');
     }
 
     /**
@@ -82,4 +103,5 @@ class TopicController extends Controller
     {
         //
     }
+
 }

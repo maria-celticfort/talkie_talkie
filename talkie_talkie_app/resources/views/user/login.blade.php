@@ -6,10 +6,16 @@
         <a href="{{ route("user.create")}}" class="btn btn-primary">Registro</a>
     </div>
 
+    @if (Session::has('log_needed_message'))
+    <div class="alert alert-info my-5">
+        {{Session:: get('log_needed_message')}}
+    </div>
+    @endif
+
     @if (Session::has('resolution'))
-        <div class="alert alert-info my-5">
-            {{Session:: get('resolution')}}
-        </div>
+    <div class="alert alert-info my-5">
+        {{Session:: get('resolution')}}
+    </div>
     @endif
 
     @if (Session::has('id'))

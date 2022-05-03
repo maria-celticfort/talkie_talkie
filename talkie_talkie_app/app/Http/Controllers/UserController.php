@@ -43,8 +43,8 @@ class UserController extends Controller
             'name'=>'required|max:50',
             'surname_1'=>'required|max:100',
             'surname_2'=>'max:100',
-            'email'=>'required|unique',
-            'nickname'=>'required|max:15|unique',
+            'email'=>'required|unique:users',
+            'nickname'=>'required|max:15|unique:users',
             'password'=>'required|max:100|min:8',
             'date_of_birth'=>'required',
             'pronouns'=>'required',
@@ -76,7 +76,7 @@ class UserController extends Controller
 
             $request->session()->put('id', $id);
  
-            return redirect()->route('index');;
+            return redirect()->route('index');
         }
  
         return back()->withErrors([
