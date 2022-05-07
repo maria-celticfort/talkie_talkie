@@ -55,8 +55,7 @@ class TopicController extends Controller
 
         $topic_id = DB::table('topics')->where('name', $request['name'])->value('id');
         $request->Session()->put('topic_id', $topic_id);
-        Session::flash('wait_message','¡De acuerdo! Empezamos a buscar');
-        return redirect()->route('match.load');
+        return redirect()->route('conversation.queue');
     }
 
     /**

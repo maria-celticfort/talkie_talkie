@@ -10,12 +10,8 @@
 
     <title>Talkie Talkie</title>
 
-    <script>
-      document.forms['confirm'].addEventListener('submit', function (event) { 
-        this.style['display'] = 'none';
-        event.preventDefault();
-      })
-    </script>
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   </head>
   <body>
     

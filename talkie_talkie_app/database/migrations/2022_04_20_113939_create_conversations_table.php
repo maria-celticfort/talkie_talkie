@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->dateTime('start_date')->nullable('False');
             $table->boolean('finished')->default(False);
-            $table->dateTime('end_date');
+            $table->dateTime('end_date')->nullable('True');
             $table->unsignedBigInteger('user_1_id');
-            $table->unsignedBigInteger('user_2_id');
+            $table->unsignedBigInteger('user_2_id')->nullable('True');
             $table->unsignedBigInteger('topic_id');
             
 

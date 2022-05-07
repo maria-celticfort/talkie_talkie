@@ -29,10 +29,13 @@ Route::get('logout',[UserController::class, 'logout'])->name('user.logout');
 #Generates URIs for Topic
 Route::resource('topic',TopicController::class);
 
-#Generates URIs for Conversation
+#Generates URIs for Conversation for Conversation
 Route::resource('conversation',ConversationController::class);
+Route::get('conversation_queue',[ConversationController::class,'add_to_queue'])->name('conversation.queue');
+Route::get('conversation_cancel',[ConversationController::class,'cancel'])->name('conversation.cancel');
 
 #Generates URIs for match Controller
-Route::get('match_index',[MatchController::class,'index'])->name('match.index');
-Route::get('match_load',[MatchController::class,'load'])->name('match.load');
-Route::get('match_cancel',[MatchController::class,'cancel'])->name('match.cancel');
+#Route::get('match_index',[MatchController::class,'index'])->name('match.index');
+#Route::get('match_queue',[MatchController::class,'add_to_queue'])->name('match.queue'); 
+#Route::get('match_cancel',[MatchController::class,'cancel'])->name('match.cancel'); #Desstroy
+#Route::get('match_create',[MatchController::class,'create_conversation'])->name('match.create'); #Create or store

@@ -9,6 +9,15 @@
         </div>
     @endif
 
+    <a class="btn btn-primary" href="{{route("conversation.cancel")}}" role="button">Cancel match</a>
     <a class="btn btn-primary" href="{{route("user.logout")}}" role="button">Logout</a>
-    <a class="btn btn-primary" href="{{route("match.cancel")}}" role="button">Cancel match</a>
+
+    
+    <script type="text/javascript">
+        var queue = "{{ route('conversation.queue') }}";
+        var intervalId = window.setInterval(function(){
+            location.href = queue;
+        }, 5000);
+    </script>
+
 @endsection
