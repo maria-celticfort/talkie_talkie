@@ -14,6 +14,7 @@ Note: Alpha versions are not complety working at all. There are just WIPs
 
 ### Alpha 0.20 (2022/05/29)
 - Matchmaking and chat system were added. Users can search for a topic in two languages: spanish and english, they will be matched with someone that is looking for the same and they will able to chat.
+- A few bugs were fixed
 
 ### Alpha 0.10 (2022/04/22)
 - Users can:
@@ -37,7 +38,7 @@ Talkie Talkie **será** una web en la que puedes buscar un t4ema, especificar el
 Nota: Las versiones alpha no funcionan completamente. Son versiones en las que aún se está trabajando.
 
 ### Alpha 0.20 (2022/05/29)
-- Se añade el sistema de emparejamiento y chat. Los usurios pueden buscar un tema en dos idiomas: español e inglés, serán emparejados con alguien que busque lo mismo que ellos y podrán empezar a hablar.
+- Se añade el sistema de emparejamiento y chat. Los usuarios pueden buscar un tema en dos idiomas: español e inglés, serán emparejados con alguien que busque lo mismo que ellos y podrán empezar a hablar.
 - Unos cuantos errores fueron arreglados.
 
 ### Alpha 0.10 (2022/04/22)
