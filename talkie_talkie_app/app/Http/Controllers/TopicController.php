@@ -49,7 +49,8 @@ class TopicController extends Controller
             return redirect()->route('user.index');  
         }
 
-        if(!Topic::where('name','=',$request->get('name'))->exists()){
+        $topic_exists = DB::table('topics')->where('name',$request->get('name'))->where('language',$request->get('language'))->value('id');
+        if (!$topic_exists){
             Topic::create($request ->only('name','language'));
         }
 

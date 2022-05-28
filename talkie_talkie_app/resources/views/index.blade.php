@@ -9,11 +9,11 @@
         </div>
     @endif
 
-    <a class="btn btn-primary" href="{{route("user.index")}}" role="button">Login</a>
-    <a class="btn btn-primary" href="{{route("user.logout")}}" role="button">Logout</a>
+    <a class="btn btn-primary" href="{{route('user.index')}}" role="button">Login</a>
+    <a class="btn btn-primary" href="{{route('user.logout')}}" role="button">Logout</a>
 
 
-    <form action="{{route("topic.store")}}" method="POST">
+    <form action="{{route('topic.store')}}" method="POST">
         @csrf
         <div class="#">
             <label for="name" class="form-label">¿De qué quieres hablar?</label>

@@ -6,6 +6,11 @@ use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\MatchController;
 use Illuminate\Support\Facades\Route;
 
+use App\Events\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +38,10 @@ Route::resource('topic',TopicController::class);
 Route::resource('conversation',ConversationController::class);
 Route::get('conversation_queue',[ConversationController::class,'add_to_queue'])->name('conversation.queue');
 Route::get('conversation_cancel',[ConversationController::class,'cancel'])->name('conversation.cancel');
+Route::post('send_message',[ConversationController::class,'send_message'])->name('message.send');
+
+#Test
+Route::get('conversation_id',[ConversationController::class,'conversation_id'])->name('conversation.id');
 
 #Generates URIs for match Controller
 #Route::get('match_index',[MatchController::class,'index'])->name('match.index');
