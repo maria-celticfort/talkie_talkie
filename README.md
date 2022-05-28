@@ -20,6 +20,8 @@ Note: Alpha versions are not complety working at all. There are just WIPs
  
  -Chat feature is not available yet.
  
+ ### Alpha 0.20 (2022/05/29)
+-Matchmaking and chat system were added. Users can search for a topic in two languages: spanish and english, they will be matched with someone that is looking for the same and they will able to chat.
  ___
 # Talkie Talkie [ESP]
 Me he encontrado varias veces en esta situació: quiero hablar con mis amigods sobre un tema específico (el último capítulo de una serie, por ejemplo) pero ninguno de ellos está interesado en ella y soy demasiado tímida para buscar gente con la que hablar en redes sociales. Además, no me siento cómoda en grandes grupos de chat. (Problemas de los introvertidos, ya sabéis)
@@ -33,6 +35,10 @@ Talkie Talkie **será** una web en la que puedes buscar un t4ema, especificar el
 
 ## Notas de versión
 Nota: Las versiones alpha no funcionan completamente. Son versiones en las que aún se está trabajando.
+
+### Alpha 0.20 (2022/05/29)
+-Se añade el sistema de emparejamiento y chat. Los usurios pueden buscar un tema en dos idiomas: español e inglés, serán emparejados con alguien que busque lo mismo que ellos y podrán empezar a hablar.
+-Unos cuantos errores fueron arreglados.
 
 ### Alpha 0.10 (2022/04/22)
 - Los usuarios pueden:
