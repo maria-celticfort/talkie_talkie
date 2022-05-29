@@ -4,7 +4,7 @@
         <span id="time">{{time}}</span>
         </li>
 
-        <small class="badge rounded-pill" :class="badgeClass"> {{user}}</small>
+        <small class="badge rounded-pill" :class="badgeClass"> {{user}} - {{pronouns}}</small>
     </div>
 
 </template>
@@ -14,6 +14,7 @@
         props:[
             'color',
             'user',
+            'pronouns',
             'time'
         ],
         computed:{

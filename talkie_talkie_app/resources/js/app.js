@@ -50,6 +50,7 @@
          chat:{
              message:[],
              user:[],
+             pronouns:[],
              color:[],
              time:[],
          },
@@ -109,6 +110,7 @@
          .listen('ChatEvent',(e) =>{
              this.chat.message.push(e.message);
              this.chat.user.push(e.user);
+             this.chat.pronouns.push(e.pronouns);
              this.chat.color.push('warning');
              this.chat.time.push(this.getTime());
          })

@@ -23,5 +23,5 @@ use App\Models\Conversation;
 Broadcast::channel ('chat.{conversation_id}',function($user,$conversation_id){
     //$conversation_id = 162;
     //return true;
-    return ['name'=>$user->name, 'conversation_id'=>$conversation_id];
+    return ['name'=>$user->name];
 });

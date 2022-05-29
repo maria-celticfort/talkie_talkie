@@ -34,9 +34,11 @@ class ConversationController extends Controller
     {
         $user = User::find(Auth::id());
         $conversation_id = Session::get('conversation_id');
-        //dd($conversation_id);
+        $pronouns = $user->pronouns;
+        $pronouns= DB::table('users')->where('id',$user->id)->value('pronouns');
+        
 
-        event(new ChatEvent($request->message, $user, $conversation_id));
+        event(new ChatEvent($request->message, $user, $conversation_id, $pronouns));
     }
 
     public function conversation_id(Request $request)

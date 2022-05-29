@@ -19,6 +19,8 @@ class ChatEvent implements ShouldBroadcast
 
     public $user;
 
+    public $pronouns;
+
     public $conversation_id;
 
     /**
@@ -26,11 +28,11 @@ class ChatEvent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($message, User $user, $conversation_id)
+    public function __construct($message, User $user, $conversation_id, $pronouns)
     {
-        //here i need the conversation_id
         $this->message = $message;
         $this->user = $user->name;
+        $this->pronouns = $pronouns;
         $this->conversation_id = $conversation_id;
         $this->dontBroadcastToCurrentUser();
     }

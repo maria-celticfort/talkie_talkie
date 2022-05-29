@@ -5380,7 +5380,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['color', 'user', 'time'],
+  props: ['color', 'user', 'pronouns', 'time'],
   computed: {
     className: function className() {
       return 'list-group-item-' + this.color;
@@ -5457,6 +5457,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
     chat: {
       message: [],
       user: [],
+      pronouns: [],
       color: [],
       time: []
     },
@@ -5516,6 +5517,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
       _this2.chat.message.push(e.message);
 
       _this2.chat.user.push(e.user);
+
+      _this2.chat.pronouns.push(e.pronouns);
 
       _this2.chat.color.push('warning');
 
@@ -35034,7 +35037,7 @@ var render = function () {
     ),
     _vm._v(" "),
     _c("small", { staticClass: "badge rounded-pill", class: _vm.badgeClass }, [
-      _vm._v(" " + _vm._s(_vm.user)),
+      _vm._v(" " + _vm._s(_vm.user) + " - " + _vm._s(_vm.pronouns)),
     ]),
   ])
 }
