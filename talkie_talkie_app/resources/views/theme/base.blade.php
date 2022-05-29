@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="/../css/app.css">
+
     <title>Talkie Talkie</title>
+    
 
     <!--jquery-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

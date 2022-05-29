@@ -12,6 +12,9 @@
     <a class="btn btn-primary" href="{{route('user.index')}}" role="button">Login</a>
     <a class="btn btn-primary" href="{{route('user.logout')}}" role="button">Logout</a>
 
+    @if (Session::has('id'))
+        <a class="btn btn-primary" href="{{route('user.show_profile')}}" role="button">Ver Perfil</a>
+    @endif
 
     <form action="{{route('topic.store')}}" method="POST">
         @csrf
@@ -33,7 +36,6 @@
 
         <button type="submit" class="btn btn-info">Aceptar</button>
     </form>
-
 
 @endsection
 

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class UserController extends Controller
 {
@@ -102,6 +102,21 @@ class UserController extends Controller
         return redirect()->route('index');
     }
 
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function show_profile()
+    {
+        $id=Session::get('id');
+        $user = User::find($id);
+        return view('user.profile')
+            ->with('user',$user);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -110,7 +125,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        //$id=Session::get('id');
+        //$user = User::find($id);
+        //return view('user.profile');
     }
 
     /**
@@ -121,7 +138,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('user.register')
+            ->with('user',$user);
     }
 
     /**
@@ -133,7 +151,64 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        if ($request->name != $user->name){
+            $request->validate([
+                'name'=>'required|max:50',
+            ]);
+        }
+
+        if ($request->surname_1 != $user->surname_1){
+            $request->validate([
+                'surname_1'=>'required|max:100',
+            ]);
+        }
+
+        if ($request->surname_2 != $user->surname_2){
+            $request->validate([
+                'surname_2'=>'max:100',
+            ]);
+        }
+
+        if ($request->email != $user->email){
+            $request->validate([
+                'email'=>'required|unique:users',
+            ]);
+        }
+
+        if ($request->nickname != $user->nickname){
+            $request->validate([
+                'nickname'=>'required|unique:users',
+            ]);
+        }
+
+        if ($request->date_of_birth != $user->date_of_birth){
+            $request->validate([
+                'date_of_birth'=>'required',
+            ]);
+        }
+
+        if ($request->password != ''){
+            $request->validate([
+                'password'=>'required|max:100|min:8|',
+            ]);
+        }else if($request->password == ''){
+            $request->password = $user->password;
+        }
+
+        $validated_data=([
+            'name'=>$request->name,
+            'surname_1'=>$request->surname_1 ,
+            'surname_2'=>$request->surname_2 ,
+            'email'=>$request->email ,
+            'nickname'=>$request->nickname ,
+            'date_of_birth'=>$request->date_of_birth,
+            'password'=>$request->password ,
+        ]);
+
+        DB::table('users')->where('id',$user->id)->update($validated_data);
+
+        Session::flash('resolution','Perfil actualizado con éxito');
+        return redirect()->route('user.show_profile');
     }
 
     /**

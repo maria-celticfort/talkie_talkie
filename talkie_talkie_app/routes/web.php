@@ -30,6 +30,8 @@ Route::get('/', function () {
 Route::resource('user',UserController::class);
 Route::post('auth',[UserController::class, 'auth'])->name('user.auth');
 Route::get('logout',[UserController::class, 'logout'])->name('user.logout');
+Route::get('show_profile',[UserController::class, 'show_profile'])->name('user.show_profile');
+
 
 #Generates URIs for Topic
 Route::resource('topic',TopicController::class);

@@ -14,12 +14,6 @@ class User extends Authenticable{
     protected $fillable = ['name','surname_1','surname_2','email','nickname','password','date_of_birth','pronouns'];
 
     public function setPasswordAttribute($password){
-
-        #This avoids conflics when the users updates their password.
-        #Updating password is not available yet.
-        #if (trim($password) === ''){
-        #    return;
-        #}
         $this->attributes['password'] = Hash::make($password);
     }
 }
