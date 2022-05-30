@@ -135,9 +135,7 @@ class ConversationController extends Controller
         if (DB::table('conversations')->where('user_1_id',$user_id)->whereNull('end_date')->value('user_2_id') != NULL ){
             $conversation_id = Session::get('conversation_id');
 
-            $number_users_speaking=DB::table('topics')->where('id',$topic_id)->value('number_users_speaking');
-            $number_users_speaking=(int)$number_users_speaking + 1;
-            $number_users_speaking=DB::table('topics')->where('id',$topic_id)->update(['number_users_speaking'=>$number_users_speaking]);
+
 
             $payload=$conversation_id;
             $payload = json_encode($payload);
@@ -164,6 +162,10 @@ class ConversationController extends Controller
                 'user_1_id'=>$user_id,
                 'topic_id'=>$topic_id
             ]);
+
+            $number_users_speaking=DB::table('topics')->where('id',$topic_id)->value('number_users_speaking');
+            $number_users_speaking=(int)$number_users_speaking + 1;
+            $number_users_speaking=DB::table('topics')->where('id',$topic_id)->update(['number_users_speaking'=>$number_users_speaking]);
 
             $id=DB::table('conversations')->where('user_1_id',$user_id)->whereNull('end_date')->value('id');
             $request->Session()->put('conversation_id', $id);

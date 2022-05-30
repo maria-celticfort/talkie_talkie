@@ -1,6 +1,7 @@
 @extends('theme.base')
 
-@section('content')
+@section('content') 
+
     <h1>Main page</h1>
        
     @if (Session::has('id'))
@@ -28,7 +29,7 @@
 
         <div class="#">
             <label for="laguage" class="form-label">Idioma</label>
-            <input type="text" name="language" class="form-control" placeholder="ESP/ENG">
+            <input type="text" name="language" class="form-control" placeholder="eng/spa/cat/glg/eus/jpn/chi/deu/ita/fra/por/gre/gle/ukr">
             @error('language')
                 <p class="form-text text-danger">{{ $message }}</p> 
             @enderror

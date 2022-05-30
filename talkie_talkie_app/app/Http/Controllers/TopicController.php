@@ -28,7 +28,7 @@ class TopicController extends Controller
      */
     public function create()
     {
-        //
+        return view('index');
     }
 
     /**
@@ -54,7 +54,12 @@ class TopicController extends Controller
             Topic::create($request ->only('name','language'));
         }
 
-        $topic_id = DB::table('topics')->where('name', $request['name'])->value('id');
+        $topic_id = DB::table('topics')->where('name', $request['name'])->where('language', $request['language'])->value('id');
+
+        $number_times_searched=DB::table('topics')->where('id',$topic_id)->value('number_times_searched');
+        $number_times_searched=(int)$number_times_searched + 1;
+        $number_times_searched=DB::table('topics')->where('id',$topic_id)->update(['number_times_searched'=>$number_times_searched]);
+
         $request->Session()->put('topic_id', $topic_id);
         return redirect()->route('conversation.queue');
     }
