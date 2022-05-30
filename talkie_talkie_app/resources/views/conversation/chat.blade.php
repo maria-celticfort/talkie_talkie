@@ -17,7 +17,6 @@
                             :key=value.index
                             :color= chat.color[index]
                             :user = chat.user[index]
-                            :pronouns = chat.pronouns[index]
                             :time = chat.time[index]
                         >
                         @{{value}}
@@ -31,13 +30,11 @@
     </div>
 
     @if(isset($payload))
-    <script type="text/javascript">
-        window.__payload = JSON.parse("{!!$payload!!}");
-        console.log(JSON.parse("{!!$payload!!}"));
-    </script>
+        <script type="text/javascript">
+            window.__payload = JSON.parse("{!!$payload!!}");
+        </script>
     @endif
  
     <script src="./js/app.js"></script>
-
     <a class="btn btn-primary" href="{{route('conversation.cancel')}}" role="button">Cancel match</a>
 @endsection

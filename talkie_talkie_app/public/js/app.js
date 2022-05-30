@@ -5379,8 +5379,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//Variables that would be shown in the view
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['color', 'user', 'pronouns', 'time'],
+  props: ['color', 'user', 'time'],
   computed: {
     className: function className() {
       return 'list-group-item-' + this.color;
@@ -5389,8 +5390,7 @@ __webpack_require__.r(__webpack_exports__);
       return 'bg-' + this.color;
     }
   },
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  mounted: function mounted() {//console.log('Component mounted.')
   }
 });
 
@@ -5440,7 +5440,6 @@ vue__WEBPACK_IMPORTED_MODULE_3__["default"].use((v_toaster__WEBPACK_IMPORTED_MOD
  */
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('message', (__webpack_require__(/*! ./components/message.vue */ "./resources/js/components/message.vue")["default"]));
 /**
@@ -5448,7 +5447,7 @@ vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('message', (__webpack_requ
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-//(`chat.${this.conversation_id}`)
+//Chat -> Vue aplication
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
   el: '#app',
@@ -5457,7 +5456,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
     chat: {
       message: [],
       user: [],
-      pronouns: [],
       color: [],
       time: []
     },
@@ -5465,6 +5463,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
     number_of_users: 0,
     conversation_id: window.__payload
   },
+  //Monitorize the chat, it allows us to know when the user we're machted with is typing
   watch: {
     message: function message() {
       window.Echo["private"]("chat.".concat(this.conversation_id)).whisper('typing', {
@@ -5472,14 +5471,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
       });
     }
   },
-  //  beforeMount() {
-  //     window.axios.get('/api/conversation_id').then(res => {
-  //         this.conversation_id = res.data
-  //         console.log('Hola');
-  //         console.log(this.conversation_id);
-  //     })
-  // },
   methods: {
+    //Sends the message, with the user data
     send_message: function send_message() {
       var _this = this;
 
@@ -5491,45 +5484,40 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
         axios__WEBPACK_IMPORTED_MODULE_0___default().post('/send_message', {
           message: this.message
         }).then(function (response) {
-          console.log(response);
+          //console.log(response);
           _this.message = '';
         })["catch"](function (error) {
           console.log(error);
         });
       }
     },
+    //Returns the actual time to know when the messages we sent
     getTime: function getTime() {
       var time = new Date();
-      return time.getHours() + ':' + time.getMinutes();
+      return time.getHours() + ':' + String(time.getMinutes()).padStart(2, "0");
     }
   },
   mounted: function mounted() {
     var _this2 = this;
 
-    // window.axios.get('/api/conversation_id2').then(res => {
-    //     this.conversation_id2 = res.data;
-    //     console.log(this.conversation_id2);
-    // })
-    //window.Echo.private(`chat.298`)
-    console.log('hola de nuevo');
-    console.log(window.__payload);
+    //Recieves the messages from the user we're matched with
     window.Echo["private"]("chat.".concat(this.conversation_id)).listen('ChatEvent', function (e) {
       _this2.chat.message.push(e.message);
 
       _this2.chat.user.push(e.user);
 
-      _this2.chat.pronouns.push(e.pronouns);
-
       _this2.chat.color.push('warning');
 
       _this2.chat.time.push(_this2.getTime());
-    }).listenForWhisper('typing', function (e) {
+    }) //Monitorize whisper event so when it's happening, it shows 'typing...'
+    .listenForWhisper('typing', function (e) {
       if (e.name != '') {
         _this2.typing = 'typing...';
       } else {
         _this2.typing = '';
       }
-    });
+    }); //Allows users to know who joined the chat, who left it and the number of users
+
     window.Echo.join("chat.".concat(this.conversation_id)).here(function (users) {
       _this2.number_of_users = users.length;
     }).joining(function (user) {
@@ -35037,7 +35025,7 @@ var render = function () {
     ),
     _vm._v(" "),
     _c("small", { staticClass: "badge rounded-pill", class: _vm.badgeClass }, [
-      _vm._v(" " + _vm._s(_vm.user) + " - " + _vm._s(_vm.pronouns)),
+      _vm._v(_vm._s(_vm.user)),
     ]),
   ])
 }

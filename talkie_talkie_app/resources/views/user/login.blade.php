@@ -3,7 +3,7 @@
 @section('content')
     <div class="info">
         <h1>Hola mundo</h1>
-        <a href="{{ route("user.create")}}" class="btn btn-primary">Registro</a>
+        <a href="{{ route('user.create')}}" class="btn btn-primary">Registro</a>
     </div>
 
     @if (Session::has('log_needed_message'))
@@ -26,7 +26,6 @@
 
 
     <h1>Inicia sesión</h1>
-    <!--CREATE USER.LOGIN INSIDE USERCONTROLLER -->
     <form action="{{ route('user.auth') }}" method="POST">
         @csrf
         <div class="mb-3">    

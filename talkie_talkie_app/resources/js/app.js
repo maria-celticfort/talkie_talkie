@@ -32,7 +32,7 @@
  // const files = require.context('./', true, /\.vue$/i)
  // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
  
- //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
  Vue.component('message', require('./components/message.vue').default);
 
  
@@ -42,7 +42,7 @@
   * or customize the JavaScript scaffolding to fit your unique needs.
   */
  
- //(`chat.${this.conversation_id}`)
+//Chat -> Vue aplication
  const app = new Vue({
      el: '#app',
      data:{
@@ -50,7 +50,6 @@
          chat:{
              message:[],
              user:[],
-             pronouns:[],
              color:[],
              time:[],
          },
@@ -58,6 +57,7 @@
          number_of_users:0,
          conversation_id: window.__payload
      },
+     //Monitorize the chat, it allows us to know when the user we're machted with is typing
      watch:{
          message(){
              window.Echo.private(`chat.${this.conversation_id}`)
@@ -66,14 +66,8 @@
                  })
                 }
      },
-    //  beforeMount() {
-    //     window.axios.get('/api/conversation_id').then(res => {
-    //         this.conversation_id = res.data
-    //         console.log('Hola');
-    //         console.log(this.conversation_id);
-    //     })
-    // },
      methods:{
+         //Sends the message, with the user data
          send_message(){
              if (this.message !== "") {
                  this.chat.message.push(this.message);
@@ -84,7 +78,7 @@
                      message : this.message
                  })
                  .then(response => {
-                     console.log(response);
+                     //console.log(response);
                      this.message=''
                  })
                  .catch(error => {
@@ -93,27 +87,22 @@
  
              }
          },
+         //Returns the actual time to know when the messages we sent
          getTime(){
              let time = new Date();
-             return time.getHours()+':'+time.getMinutes();
+             return time.getHours()+':'+ (String(time.getMinutes()).padStart(2, "0"));
          },
      },
      mounted(){
-         // window.axios.get('/api/conversation_id2').then(res => {
-         //     this.conversation_id2 = res.data;
-         //     console.log(this.conversation_id2);
-         // })
-         //window.Echo.private(`chat.298`)
-         console.log('hola de nuevo');
-         console.log(window.__payload);
+        //Recieves the messages from the user we're matched with
          window.Echo.private(`chat.${this.conversation_id}`)
          .listen('ChatEvent',(e) =>{
              this.chat.message.push(e.message);
              this.chat.user.push(e.user);
-             this.chat.pronouns.push(e.pronouns);
              this.chat.color.push('warning');
              this.chat.time.push(this.getTime());
          })
+        //Monitorize whisper event so when it's happening, it shows 'typing...'
          .listenForWhisper('typing', (e) =>{
              if (e.name != ''){
                  this.typing= 'typing...'
@@ -121,6 +110,7 @@
                  this.typing='';
              }
          });
+        //Allows users to know who joined the chat, who left it and the number of users
          window.Echo.join(`chat.${this.conversation_id}`)
              .here((users) => {
                  this.number_of_users = users.length;

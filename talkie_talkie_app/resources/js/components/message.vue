@@ -1,20 +1,20 @@
+<!-- Dynamic HTML tags-->
 <template>
     <div>
         <li class="list-group-item" :class="className"><slot> </slot>
         <span id="time">{{time}}</span>
         </li>
 
-        <small class="badge rounded-pill" :class="badgeClass"> {{user}} - {{pronouns}}</small>
+        <small class="badge rounded-pill" :class="badgeClass">{{user}}</small>
     </div>
-
 </template>
 
 <script>
+    //Variables that would be shown in the view
     export default {
         props:[
             'color',
             'user',
-            'pronouns',
             'time'
         ],
         computed:{
@@ -27,10 +27,12 @@
         },
 
         mounted() {
-            console.log('Component mounted.')
+            //console.log('Component mounted.')
         }
     }
 </script>
+
+
 <!--Todo: write this in a better place-->
 <style>
     #time{

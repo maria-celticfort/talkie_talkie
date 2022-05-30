@@ -2,6 +2,13 @@
 
 @section('content')
     <h1>Aqui deberia ir el perfil</h1>
+
+    @if (Session::has('resolution'))
+    <div class="alert alert-info my-5">
+        {{Session:: get('resolution')}}
+    </div>
+    @endif
+
     <div class="user_data">
         Nombre: {{$user->name}} <br>
         Primer apellido: {{$user->surname_1}} <br>
