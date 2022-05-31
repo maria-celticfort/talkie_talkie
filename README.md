@@ -13,7 +13,7 @@ Talkie Talkie **will** be an website where you search a topic, specify the langu
 Note: Alpha versions are not complety working at all. There are just WIPs
 
 
-### Alpha 0.20 (2022/05/31)
+### Alpha 0.30 (2022/05/31)
 - User Experience was improved:
   - Users can check their profiles and edit them
   - User name and pronouns will be displayed during chats
@@ -46,7 +46,7 @@ Talkie Talkie **será** una web en la que puedes buscar un t4ema, especificar el
 ## Notas de versión
 Nota: Las versiones alpha no funcionan completamente. Son versiones en las que aún se está trabajando.
 
-### Alpha 0.20 (2022/05/31)
+### Alpha 0.30 (2022/05/31)
 - Se mejoró al experiencia de usuario:
   - Los usuarios pueden consultar sus perfiles y modificar sus datos.
   - Los nombres y los pronombrees de los usuarios se muestran durante las conversaciones.
