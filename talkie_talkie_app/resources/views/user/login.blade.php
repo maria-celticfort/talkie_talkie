@@ -2,8 +2,7 @@
 
 @section('content')
     <div class="info">
-        <h1>Hola mundo</h1>
-        <a href="{{ route("user.create")}}" class="btn btn-primary">Registro</a>
+        <a href="{{ route('user.create')}}" class="btn btn-primary">Registro</a>
     </div>
 
     @if (Session::has('log_needed_message'))
@@ -18,15 +17,7 @@
     </div>
     @endif
 
-    @if (Session::has('id'))
-    <div class="alert alert-info my-5">
-        <h5>Hi! Sessions are working</h5>
-    </div>
-    @endif
-
-
     <h1>Inicia sesión</h1>
-    <!--CREATE USER.LOGIN INSIDE USERCONTROLLER -->
     <form action="{{ route('user.auth') }}" method="POST">
         @csrf
         <div class="mb-3">    
@@ -47,5 +38,7 @@
 
         <button type="submit" class="btn btn-info">Aceptar</button>
     </form>
+
+    <a class="btn btn-primary" href="{{route('index')}}" role="button">Volver a Inicio</a>
     
 @endsection

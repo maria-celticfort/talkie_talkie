@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
+//Allows massive data assignation of Conversation attributes included
 class Conversation extends Model
 {
     use HasFactory;

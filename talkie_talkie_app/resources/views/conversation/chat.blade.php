@@ -1,7 +1,15 @@
 @extends('theme.base')
 
 @section('content')
-    <h1>Chat will go here</h1>
+    <!-- User 1 goes by here and gets User 2 data -->
+    @if (Session::get('id') == isset($user_2_data->id))
+        Chat con {{$user_2_data->name}}({{$user_2_data->pronouns}})
+    @endif
+
+    <!-- User 2 goes by here and gets User 1 data -->
+    @if (Session::get('id') == isset($user_1_data->id))
+        Chat con {{$user_1_data->name}}({{$user_1_data->pronouns}})
+    @endif
 
     <div class="container">
         <h1>Chat Room</h1>
@@ -30,13 +38,11 @@
     </div>
 
     @if(isset($payload))
-    <script type="text/javascript">
-        window.__payload = JSON.parse("{!!$payload!!}");
-        console.log(JSON.parse("{!!$payload!!}"));
-    </script>
+        <script type="text/javascript">
+            window.__payload = JSON.parse("{!!$payload!!}");
+        </script>
     @endif
  
     <script src="./js/app.js"></script>
-
-    <a class="btn btn-primary" href="{{route('conversation.cancel')}}" role="button">Cancel match</a>
+    <a class="btn btn-primary" href="{{route('conversation.cancel')}}" role="button">Abandonar chat</a>
 @endsection

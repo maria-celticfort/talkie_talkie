@@ -1,17 +1,15 @@
 @extends('theme.base')
 
-@section('content')
-    <h1>Main page</h1>
+@section('content') 
+
+    <h1>Talkie Talkie - Main page</h1>
        
+    <a class="btn btn-primary" href="{{route('user.index')}}" role="button">Login/Sign in</a>
+
     @if (Session::has('id'))
-        <div class="alert alert-info my-5">
-            <h5>Hi! Sessions are working</h5>
-        </div>
+        <a class="btn btn-primary" href="{{route('user.show_profile')}}" role="button">Ver Perfil</a>
+        <a class="btn btn-primary" href="{{route('user.logout')}}" role="button">Logout</a>
     @endif
-
-    <a class="btn btn-primary" href="{{route('user.index')}}" role="button">Login</a>
-    <a class="btn btn-primary" href="{{route('user.logout')}}" role="button">Logout</a>
-
 
     <form action="{{route('topic.store')}}" method="POST">
         @csrf
@@ -25,7 +23,7 @@
 
         <div class="#">
             <label for="laguage" class="form-label">Idioma</label>
-            <input type="text" name="language" class="form-control" placeholder="ESP/ENG">
+            <input type="text" name="language" class="form-control" placeholder="eng/spa/cat/glg/eus/jpn/chi/deu/ita/fra/por/gre/gle/ukr">
             @error('language')
                 <p class="form-text text-danger">{{ $message }}</p> 
             @enderror
@@ -33,7 +31,6 @@
 
         <button type="submit" class="btn btn-info">Aceptar</button>
     </form>
-
 
 @endsection
 

@@ -8,18 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User as Authenticable;
 
-
+//Allows massive data assignation of User attributes included
 class User extends Authenticable{
     use HasFactory;
     protected $fillable = ['name','surname_1','surname_2','email','nickname','password','date_of_birth','pronouns'];
 
+    /**
+     * Encrypt the password
+     *
+     * @return string
+     */
     public function setPasswordAttribute($password){
-
-        #This avoids conflics when the users updates their password.
-        #Updating password is not available yet.
-        #if (trim($password) === ''){
-        #    return;
-        #}
         $this->attributes['password'] = Hash::make($password);
     }
 }
