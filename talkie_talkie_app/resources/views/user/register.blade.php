@@ -84,9 +84,16 @@
                     <p class="form-text text-danger">{{ $message }}</p>
                 @enderror
             </div>
-
                 <button type="submit" class="btn btn-info">Aceptar</button>
         </form>
+
+        @if (isset($user))
+            <a class="btn btn-primary" href="{{route('user.show_profile')}}" role="button">Cancelar cambios</a>
+        @else 
+            <a class="btn btn-primary" href="{{route('index')}}" role="button">Volver atrás</a>
+        @endif
+
+        
     </div>
     
 @endsection

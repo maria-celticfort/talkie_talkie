@@ -1,7 +1,7 @@
 @extends('theme.base')
 
 @section('content')
-    <h1>Aqui deberia ir el perfil</h1>
+    <h1>Perfil</h1>
 
     @if (Session::has('resolution'))
     <div class="alert alert-info my-5">
@@ -20,4 +20,6 @@
     </div>
 
     <a class="btn btn-primary" href="{{route('user.edit', $user)}}" role="button">Editar perfil</a>
+    <a class="btn btn-primary" href="{{route('user.logout')}}" role="button">Logout</a>
+    <a class="btn btn-primary" href="{{route('index')}}" role="button">Volver a Inicio</a>
 @endsection

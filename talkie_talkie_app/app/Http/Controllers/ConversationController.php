@@ -70,13 +70,24 @@ class ConversationController extends Controller
         if (DB::table('conversations')->where('user_1_id',$user_id)->whereNull('end_date')->value('user_2_id') != NULL ){
             //Get Conversation id
             $conversation_id = Session::get('conversation_id');
+            
+            //Get all Conversation data
+            $conversation=Conversation::find($conversation_id);
 
             //Create payload with the Conversation id 
             $payload=$this->create_payload($conversation_id);
 
+            //Get data from the User we're matched to
+            $user_data = DB::table('users')
+                ->join('conversations', 'users.id','=','conversations.user_2_id')
+                ->where('conversations.id',$conversation_id)
+                ->select('users.name','users.pronouns','users.id')
+                ->get();
+
             //The User will be redirected to the chat view with the payload
             return view('conversation.chat')
-            ->with('payload', $payload);
+            ->with('payload', $payload )
+            ->with('user_2_data' ,$user_data[0]);
         }
 
         #If the conversation exists but no one joined yet, just keep waiting
@@ -103,8 +114,8 @@ class ConversationController extends Controller
             $this->add_number_users_speaking($topic_id);
 
             //Get new Conversation id and save it in Session
-            $id=DB::table('conversations')->where('user_1_id',$user_id)->whereNull('end_date')->value('id');
-            $request->Session()->put('conversation_id', $id);
+            $conversation_id=DB::table('conversations')->where('user_1_id',$user_id)->whereNull('end_date')->value('id');
+            $request->Session()->put('conversation_id', $conversation_id);
             
             //The user will be redirected to the Wait Room
             return redirect()->route('conversation.index');
@@ -127,12 +138,20 @@ class ConversationController extends Controller
             //Call function to substract one from 'number_users_speaking' that topic
             $this->add_number_users_speaking($topic_id);
 
+            //Get data from the User we're matched to
+            $user_data = DB::table('users')
+                ->join('conversations', 'users.id','=','conversations.user_1_id')
+                ->where('conversations.id',$conversation_id)
+                ->select('users.name','users.pronouns','users.id')
+                ->get();
+
             //Create payload with the Conversation id 
             $payload=$this->create_payload($conversation_id);
 
             //The user will be redirected to the chat view
             return view('conversation.chat')
-            ->with('payload', $payload);
+            ->with('payload', $payload)
+            ->with('user_1_data' ,$user_data[0]);
         }
     }
 

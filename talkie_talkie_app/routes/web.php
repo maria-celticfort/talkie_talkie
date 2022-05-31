@@ -32,8 +32,24 @@ Route::resource('topic',TopicController::class);
 
 #Generates URIs for Conversation
 Route::resource('conversation',ConversationController::class);
-Route::get('conversation_queue',[ConversationController::class,'add_to_queue'])->name('conversation.queue');
+Route::get('conversation_queue',[ConversationController::class,'add_to_queue'])->name('conversation.queue'); 
 Route::get('conversation_cancel',[ConversationController::class,'cancel'])->name('conversation.cancel');
 Route::post('send_message',[ConversationController::class,'send_message'])->name('message.send');
 
 
+
+
+
+
+
+
+
+
+#Secret Routes
+Route::get('/coffee', function () {
+    return view('secret_stuff.coffee');
+});
+
+Route::get('/tea', function () {
+    return view('secret_stuff.tea');
+});

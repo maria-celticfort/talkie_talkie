@@ -2,19 +2,13 @@
 
 @section('content') 
 
-    <h1>Main page</h1>
+    <h1>Talkie Talkie - Main page</h1>
        
-    @if (Session::has('id'))
-        <div class="alert alert-info my-5">
-            <h5>Hi! Sessions are working</h5>
-        </div>
-    @endif
-
-    <a class="btn btn-primary" href="{{route('user.index')}}" role="button">Login</a>
-    <a class="btn btn-primary" href="{{route('user.logout')}}" role="button">Logout</a>
+    <a class="btn btn-primary" href="{{route('user.index')}}" role="button">Login/Sign in</a>
 
     @if (Session::has('id'))
         <a class="btn btn-primary" href="{{route('user.show_profile')}}" role="button">Ver Perfil</a>
+        <a class="btn btn-primary" href="{{route('user.logout')}}" role="button">Logout</a>
     @endif
 
     <form action="{{route('topic.store')}}" method="POST">
