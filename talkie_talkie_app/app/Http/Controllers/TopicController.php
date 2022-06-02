@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\ConversationController;
+use App\Models\Conversation;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -28,6 +30,11 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
+        //Cancel any current conver to avoid conflicts
+        if ((Session::has('conversation_id')) AND (Session::get('conversation_id')!=NULL)){
+            return redirect()->route('conversation.cancel'); 
+        }
+
         //User must be loged in to search for a topic
         if(!Session::has('id')){
             Session::flash('log_needed_message','Inicia sesión para poder buscar un tema');    
@@ -39,15 +46,16 @@ class TopicController extends Controller
             'name'=>'required|max:50',
             'language'=>'required',
         ]);
-
+        
         //If the Topic doesn't exist in the language choosen by the user, it will be created
-        $topic_exists = DB::table('topics')->where('name',$request->get('name'))->where('language',$request->get('language'))->value('id');
+        $name=strtolower($request->get('name'));
+        $topic_exists = DB::table('topics')->where('name',$name)->where('language',$request->get('language'))->value('id');
         if (!$topic_exists){
-            Topic::create($request ->only('name','language'));
+            Topic::create(['name'=>$name, 'languag'=>$request ->only('language')]);
         }
 
         //We recuperate the id in DB of the Topic searcheed.
-        $topic_id = DB::table('topics')->where('name', $request['name'])->where('language', $request['language'])->value('id');
+        $topic_id = DB::table('topics')->where('name', $name)->where('language', $request['language'])->value('id');
 
         //Add a 'number_times_searched more'
         $this->times_searched($topic_id);

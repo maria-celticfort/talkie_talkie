@@ -1,11 +1,12 @@
 <!-- Dynamic HTML tags-->
 <template>
     <div>
+        <small class="badge rounded-pill" :class="badgeClass">{{user}}</small>
         <li class="list-group-item" :class="className"><slot> </slot>
         <span id="time">{{time}}</span>
         </li>
 
-        <small class="badge rounded-pill" :class="badgeClass">{{user}}</small>
+        
     </div>
 </template>
 
@@ -31,13 +32,3 @@
         }
     }
 </script>
-
-
-<!--Todo: write this in a better place-->
-<style>
-    #time{
-        font-size:8px;
-        margin-top:50%;
-        color:gray;
-    }
-</style>

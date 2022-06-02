@@ -18,6 +18,7 @@
  
  import Toaster from 'v-toaster';
  import 'v-toaster/dist/v-toaster.css'
+import { Warning } from 'postcss';
  Vue.use(Toaster, {timeout: 5000})
  
  
@@ -71,8 +72,8 @@
          send_message(){
              if (this.message !== "") {
                  this.chat.message.push(this.message);
-                 this.chat.user.push('you');
-                 this.chat.color.push('success');
+                 this.chat.user.push('Tú');
+                 this.chat.color.push('primary');
                  this.chat.time.push(this.getTime());
                  axios.post('/send_message',{
                      message : this.message
@@ -103,13 +104,15 @@
              this.chat.time.push(this.getTime());
          })
         //Monitorize whisper event so when it's happening, it shows 'typing...'
+        
          .listenForWhisper('typing', (e) =>{
              if (e.name != ''){
-                 this.typing= 'typing...'
+                this.typing= 'Escribiendo...'
              }else{
                  this.typing='';
              }
          });
+       
         //Allows users to know who joined the chat, who left it and the number of users
          window.Echo.join(`chat.${this.conversation_id}`)
              .here((users) => {
@@ -117,7 +120,7 @@
              })
              .joining((user) => {
                  this.number_of_users += 1;
-                 this.$toaster.success(user.name +' joined the chat');
+                 this.$toaster.info(user.name +' joined the chat');
              })
              .leaving((user) => {
                  this.number_of_users -= 1;
