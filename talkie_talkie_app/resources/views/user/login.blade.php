@@ -28,7 +28,7 @@
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                <input type="password" name="password" class="form-control" placeholder="Contraseña" minlength="8">
                 @error('password')
                     <p class="form-text text-danger">{{ $message }}</p>
                 @enderror

@@ -49,13 +49,16 @@ class TopicController extends Controller
         
         //If the Topic doesn't exist in the language choosen by the user, it will be created
         $name=strtolower($request->get('name'));
-        $topic_exists = DB::table('topics')->where('name',$name)->where('language',$request->get('language'))->value('id');
+        $language=$request->get('language');
+
+        $topic_exists = DB::table('topics')->where('name',$name)->where('language',$language)->value('id');
+        
         if (!$topic_exists){
-            Topic::create(['name'=>$name, 'languag'=>$request ->only('language')]);
+            Topic::create(['name'=>$name, 'language'=>$language]);
         }
 
         //We recuperate the id in DB of the Topic searcheed.
-        $topic_id = DB::table('topics')->where('name', $name)->where('language', $request['language'])->value('id');
+        $topic_id = DB::table('topics')->where('name', $name)->where('language', $language)->value('id');
 
         //Add a 'number_times_searched more'
         $this->times_searched($topic_id);

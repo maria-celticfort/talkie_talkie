@@ -11354,9 +11354,13 @@ footer{
 
 .background-color{
   /*background: linear-gradient(0.2deg, #09D9EE 0%, #23FF00 100%);*/
-  background: linear-gradient(0.2deg, rgba(9,217,238,0.75) 0%, rgba(35,255,0,0.75) 100%);
+  background: linear-gradient(0.2deg, rgba(9,217,238,0.55) 0%, rgba(35,255,0,0.55) 100%);
   background-repeat: no-repeat;
   background-size:cover ;
+}
+
+.a-custom{
+  padding:1%;
 }
 
 .info{

@@ -16,10 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-#Generates URI for main page
+#Generates URI for main page, about us and faqs page
 Route::get('/', function () {
     return view('index');
 })->name('index');
+
+Route::get('/faqs', function () {
+    return view('etc.faqs');
+})->name('faqs');
+
+Route::get('/about_us', function () {
+    return view('etc.about_us');
+})->name('about_us');
 
 #Generates URIs for User
 Route::resource('user',UserController::class);

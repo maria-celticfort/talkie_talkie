@@ -7,7 +7,7 @@
 
         <div class="mt-2-custom">
             <div class="d-flex justify-content-center">
-                <img src="{{URL::asset('/image/loading.gif')}}" alt="Imágen de carga" height="200" width="200">
+                <img src="{{URL::asset('/image/loading.gif')}}" alt="Imágen de carga" height=20% width=20%>
             </div>
         </div>
 

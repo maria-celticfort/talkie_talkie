@@ -23,6 +23,7 @@
                             </div>
                             <div class="col-md-6">
                                 <select type="text" name="language" class="form-control" placeholder="Escoge un idioma" required>
+                                    <option value="">Selecciona un idioma</option>
                                     <option value="eng">Inglés</option>
                                     <option value="spa">Español</option>
                                     <option value="cat">Catalán</option>

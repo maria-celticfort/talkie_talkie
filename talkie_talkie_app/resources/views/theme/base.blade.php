@@ -35,8 +35,8 @@
           <li class="nav-item"><a class="nav-link" href="{{route('user.show_profile')}}">Ver perfil</a></li>
           <li class="nav-item"><a class="nav-link" href="{{route('user.logout')}}">Cierra sesión</a></li>
           @endif
-          <li class="nav-item"><a class="nav-link" href="#!">FAQs</a></li>
-          <li class="nav-item"><a class="nav-link" href="#!">Sobre nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{route('faqs')}}">FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{route('about_us')}}">Sobre nosotros</a></li>
         </ul>
       </div>
     </div>
@@ -50,27 +50,32 @@
       <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
         <div class="col">
           <div class="text-center">
-            <a class="link-custom text-center" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Inicio</a>
+            <a class="link-custom text-center" href="{{route('index')}}">Inicio</a>
           </div>
         </div>
         <div class="col">
           <div class="text-center">
-            <a class="link-custom text-center" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Regístrate</a>
+            <a class="link-custom text-center" href="{{route('user.create')}}">Regístrate</a>
           </div>
         </div>
         <div class="col">
           <div class="text-center">
-            <a class="link-custom text-center" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">FAQs</a>
+            <a class="link-custom text-center" href="{{route('faqs')}}">FAQs</a>
           </div>
         </div>
         <div class="col">
           <div class="text-center">
-            <a class="link-custom text-center" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Sobre nosotros</a>
+            <a class="link-custom text-center" href="{{route('about_us')}}">Sobre nosotros</a>
           </div>
         </div>
         <div class="col">
           <div class="text-center">
-            <a class="link-custom text-center" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative commons</a>
+            <a class="link-custom text-center" href="https://github.com/maria-celticfort/talkie_talkie"><img src="{{URL::asset('/image/github_logo.png')}}" alt="Imágen de carga" height=50px width=50px></a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center">
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
           </div>
         </div>
       </div>
