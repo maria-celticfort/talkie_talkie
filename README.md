@@ -6,12 +6,13 @@ So I though, "What if I create an website where I search a topic and it found ot
 
 And here I am, coding Talkie Talkie.
 
-## About Us
-Talkie Talkie **will** be an website where you search a topic, specify the language you want to use and then it matches you with someone looking for the exact same. Then, you both can speak about that things your friends are not into.
-
 ## Patch Notes
-Note: Alpha versions are not complety working at all. There are just WIPs
 
+### Beta 0.10 - Current version (2022/06/03)
+This is the first fully working version :tada:
+
+- User Interface created. We gave Talkie Talkie an actual look instead of random forms here and there
+- A bunch of minor errors were fixed
 
 ### Alpha 0.30 (2022/05/31)
 - User Experience was improved:
@@ -34,17 +35,20 @@ Note: Alpha versions are not complety working at all. There are just WIPs
  - Chat feature is not available yet.
  ___
 # Talkie Talkie [ESP]
-Me he encontrado varias veces en esta situació: quiero hablar con mis amigods sobre un tema específico (el último capítulo de una serie, por ejemplo) pero ninguno de ellos está interesado en ella y soy demasiado tímida para buscar gente con la que hablar en redes sociales. Además, no me siento cómoda en grandes grupos de chat. (Problemas de los introvertidos, ya sabéis)
+Me he encontrado varias veces en esta situació: quiero hablar con mis amigods sobre un tema específico (el último capítulo de una serie, por ejemplo) pero ninguno de ellos está interesado en ella y soy demasiado introvertida para buscar gente con la que hablar en redes sociales. Además, no me siento cómoda en grandes grupos de chat. (Problemas de los introvertidos, ya sabéis)
 
 Así que pensé "¿Y si creo una web en donde yo busco un tema y encuentra otra persona que quiera hablar de ese mismo tema?"
 
 Y aquí estoy, programando Talkie Talkie.
 
-## Sobre nosotros
-Talkie Talkie **será** una web en la que puedes buscar un t4ema, especificar el idioma en el que quieres hablar y entonces, te empareja con alguien que está buscando lo mismo que tú.
-
 ## Notas de versión
-Nota: Las versiones alpha no funcionan completamente. Son versiones en las que aún se está trabajando.
+
+
+### Beta 0.10 - Current version (2022/06/03)
+Esta es la primera versión completamente funcional :tada:
+
+- Se creó una iterfaz de usaurio. Hicimos una interfaz de usuario como tal en vez de tener formularios por aquí y por allá
+- Se arreglaron unos cantos errores menores
 
 ### Alpha 0.30 (2022/05/31)
 - Se mejoró al experiencia de usuario:

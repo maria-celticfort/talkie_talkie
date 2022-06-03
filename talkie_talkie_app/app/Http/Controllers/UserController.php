@@ -90,7 +90,7 @@ class UserController extends Controller
  
         //If the data doesn't match our records, the user will be notified
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => '¡Ups! Las credenciales que has introducido no coinciden con nuetros datos',
         ])->onlyInput('email');
     }
 
