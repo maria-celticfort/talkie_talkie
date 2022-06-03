@@ -24,6 +24,7 @@ This is the first fully working version :tada:
 
 ### Alpha 0.20 (2022/05/29)
 - Matchmaking and chat system were added. Users can search for a topic in two languages: spanish and english, they will be matched with someone that is looking for the same and they will able to chat.
+- A few bugs were fixed
 
 ### Alpha 0.10 (2022/04/22)
 - Users can:
@@ -42,6 +43,7 @@ Y aquí estoy, programando Talkie Talkie.
 
 ## Notas de versión
 
+
 ### Beta 0.10 - Current version (2022/06/03)
 Esta es la primera versión completamente funcional :tada:
 
@@ -57,7 +59,7 @@ Esta es la primera versión completamente funcional :tada:
 - Se corrigieron algunos bugs
 
 ### Alpha 0.20 (2022/05/29)
-- Se añade el sistema de emparejamiento y chat. Los usurios pueden buscar un tema en dos idiomas: español e inglés, serán emparejados con alguien que busque lo mismo que ellos y podrán empezar a hablar.
+- Se añade el sistema de emparejamiento y chat. Los usuarios pueden buscar un tema en dos idiomas: español e inglés, serán emparejados con alguien que busque lo mismo que ellos y podrán empezar a hablar.
 - Unos cuantos errores fueron arreglados.
 
 ### Alpha 0.10 (2022/04/22)
