@@ -30,8 +30,9 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
-        //Cancel any current conver to avoid conflicts
+        //Cancel any current conversation to avoid conflicts
         if ((Session::has('conversation_id')) AND (Session::get('conversation_id')!=NULL)){
+            $request->Session()->put('bad_exit', true);
             return redirect()->route('conversation.cancel'); 
         }
 

@@ -182,14 +182,23 @@ class ConversationController extends Controller
         //Conversation id in Session is set to null to avoid conflicts
         $request->Session()->put('conversation_id',null);
 
-        //The user will be redirected to 
+
+        //The user will be redirected to Topic controller with a warning if they left the chat room badly.
+        //Else, they will be redirected to the main page normally
+        $bad_exit=$request->Session()->get('bad_exit');
+        
+        if ($bad_exit == true){
+            $request->Session()->put('bad_exit',false);
+            Session::flash('bad_exit','Hemos cerrado tus conversaciones anteriores');
+        }
         return redirect()->route('index');
     }
 
     /**
      * Subtract 1 to the 'number_of_users_speaking'
      * 
-     * @param int $topic_id
+     * @param int $topic_id$request->Session()->get('topic_id');
+
      * @return void
      */
     public function substract_number_users_speaking($topic_id) {

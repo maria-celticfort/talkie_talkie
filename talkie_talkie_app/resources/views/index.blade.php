@@ -2,6 +2,7 @@
 
 
 @section('content') 
+
     <header class="masthead text-center text-black">
             <div class="masthead-content">
                 <div class="container px-5">
@@ -44,6 +45,16 @@
                                 @enderror
                             </div> 
                         </div>
+
+                        @if (Session::has('bad_exit'))
+                            <div class="container px-5">
+                                <div class="alert alert-danger my-5" role="alert">
+                                    {{Session:: get('bad_exit')}}<br>
+                                    Usa "Abandonar chat"/"Cancelar búsqueda" la próxima vez<br>
+                                    Busca el tema de nuevo
+                                </div>
+                            </div>
+                        @endif
                     
                         <div class="search-topic-btn">
                             <div class="row">

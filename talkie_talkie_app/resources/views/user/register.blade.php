@@ -1,10 +1,6 @@
 @extends('theme.base')
 
 @section('content')
-
-        <!-- TO DO -->
-        <!--'pronouns' should display the options in the DB. I'll improve in the frontend sprint-->
-        <!--Add required to notnull fields (just in case, validations are alredy done). I'll improve in the frontend sprint-->
         <div class="mt-2-custom container px-5">
             @if (isset($user))
                 <h1>Edita tu perfil</h1>
